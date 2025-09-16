@@ -16,7 +16,9 @@ export default function Captcha_second() {
   // Fetch captcha from backend
   async function fetchCaptcha() {
     try {
-      const res = await axios.get("http://127.0.0.1:8080/api/capatchalab2");
+      const res = await axios.get(
+        "https://digitopia-project-backend.vercel.app/api/capatchalab2"
+      );
       const { num1, num2 } = res.data;
       setCaptchaQuestion(`${num1} + ${num2}`);
       setCaptcha(""); // Reset input field
@@ -38,10 +40,13 @@ export default function Captcha_second() {
     setErr("");
 
     try {
-      await axios.post("http://127.0.0.1:8080/api/capatchalab2", {
-        result: captcha,
-        comment: comment,
-      });
+      await axios.post(
+        "https://digitopia-project-backend.vercel.app/api/capatchalab2",
+        {
+          result: captcha,
+          comment: comment,
+        }
+      );
 
       setComment("");
       setCaptcha("");
@@ -57,7 +62,7 @@ export default function Captcha_second() {
   async function fetchComments() {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8080/api/capatchalab2comments"
+        "https://digitopia-project-backend.vercel.app/api/capatchalab2comments"
       );
 
       if (Array.isArray(response.data)) {
@@ -82,7 +87,9 @@ export default function Captcha_second() {
     setErr("");
 
     try {
-      await axios.delete("http://127.0.0.1:8080/api/capatchalab2");
+      await axios.delete(
+        "https://digitopia-project-backend.vercel.app/api/capatchalab2"
+      );
 
       setComments([]);
       setComment("");
@@ -99,7 +106,7 @@ export default function Captcha_second() {
     <div className="body-captcha">
       <GoBackBtn />
       <ShowHintBtn hintText="The CAPTCHA values stay the same in the session until solved. Try brute-forcing different answers until you get it right! 🚀" />
-      <ThemeSwitcher/>
+      <ThemeSwitcher />
       <div className="captcha_first">
         <div className="container-captcha">
           <div className="card-captcha">
@@ -137,7 +144,11 @@ export default function Captcha_second() {
             </div>
           </div>
           <div className="reset mb-5">
-            <button onClick={deleteCaptcha} disabled={loading} className="captcha_reset_btn">
+            <button
+              onClick={deleteCaptcha}
+              disabled={loading}
+              className="captcha_reset_btn"
+            >
               {loading ? "Resetting..." : "Reset"}
             </button>
           </div>

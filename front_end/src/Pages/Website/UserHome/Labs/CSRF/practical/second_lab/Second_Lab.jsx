@@ -14,7 +14,7 @@ const CSRFLogin = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8080/api/getAllUsers"
+          "https://digitopia-project-backend.vercel.app/api/getAllUsers"
         );
         setUsers(response.data);
       } catch (error) {
@@ -39,7 +39,7 @@ const CSRFLogin = () => {
       const user = users.find((user) => user.authority === username);
       if (user) {
         const response = await axios.post(
-          "http://127.0.0.1:8080/api/CSRFLab2",
+          "https://digitopia-project-backend.vercel.app/api/CSRFLab2",
           {
             username: user.authority,
             validPass: user.password,

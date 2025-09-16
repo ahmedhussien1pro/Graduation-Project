@@ -24,7 +24,7 @@ export default function CaptchaThird() {
   async function fetchComments() {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8080/api/capatchalab3comments"
+        "https://digitopia-project-backend.vercel.app/api/capatchalab3comments"
       );
 
       if (Array.isArray(response.data)) {
@@ -48,7 +48,9 @@ export default function CaptchaThird() {
     setLoading(true);
     setErr("");
     try {
-      await axios.delete("http://127.0.0.1:8080/api/capatchalab3comments");
+      await axios.delete(
+        "https://digitopia-project-backend.vercel.app/api/capatchalab3comments"
+      );
       setComments([]);
       setComment("");
       setCaptcha(null);
@@ -74,7 +76,7 @@ export default function CaptchaThird() {
     try {
       // Send comment and CAPTCHA token together
       const response = await axios.post(
-        "http://127.0.0.1:8080/api/capatchalab3comments",
+        "https://digitopia-project-backend.vercel.app/api/capatchalab3comments",
         {
           comment,
           token: captcha, // ✅ Sent together in the same request
@@ -106,7 +108,7 @@ export default function CaptchaThird() {
     <div className="body-captcha">
       <GoBackBtn />
       <ShowHintBtn hintText=" Inspect the request and try removing the CAPTCHA field to see if validation still happens! 🚀" />
-      <ThemeSwitcher/>
+      <ThemeSwitcher />
       <div className="captcha_first">
         <div className="container-captcha">
           <div className="card-captcha">
@@ -142,7 +144,11 @@ export default function CaptchaThird() {
             </div>
           </div>
           <div className="reset mb-5">
-            <button onClick={deleteCaptcha} disabled={loading} className="captcha_reset_btn">
+            <button
+              onClick={deleteCaptcha}
+              disabled={loading}
+              className="captcha_reset_btn"
+            >
               {loading ? "Resetting..." : "Reset"}
             </button>
           </div>

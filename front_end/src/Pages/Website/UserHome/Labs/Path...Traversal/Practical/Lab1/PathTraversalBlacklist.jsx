@@ -51,7 +51,9 @@ export default function PathTraversalBlacklist() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8080/api/pathTraversalLab1Products")
+      .get(
+        "https://digitopia-project-backend.vercel.app/api/pathTraversalLab1Products"
+      )
       .then((response) => {
         if (response.data.message === "products found") {
           setProducts(response.data.data);
@@ -74,7 +76,7 @@ export default function PathTraversalBlacklist() {
                 <div key={product.id} className="unique-col">
                   <div className="unique-card">
                     <img
-                      src={`http://127.0.0.1:8080/${product.path}`}
+                      src={`https://digitopia-project-backend.vercel.app/${product.path}`}
                       alt={product.name}
                       className="unique-card-img"
                       onClick={() =>

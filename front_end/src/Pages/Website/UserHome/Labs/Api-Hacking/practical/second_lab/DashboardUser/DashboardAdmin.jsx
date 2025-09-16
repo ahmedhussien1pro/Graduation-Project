@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
-import { Toast } from "bootstrap"; 
+import { Toast } from "bootstrap";
 import "./DashboardAdmin.css";
 import GOBack from "../../../../../Components/GoBack_Btn/GoBack_Btn";
 import ShowHint from "../../../../../Components/ShowHint_Btn/ShowHint_Btn";
@@ -16,7 +16,7 @@ export default function DashboardAdmin() {
     const fetchWallpapersByUserId = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:8080/api/wallpapers/${userId}`
+          `https://digitopia-project-backend.vercel.app/api/wallpapers/${userId}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch wallpapers");
@@ -38,7 +38,7 @@ export default function DashboardAdmin() {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:8080/api/wallpapers/${userId}/${id}`,
+        `https://digitopia-project-backend.vercel.app/api/wallpapers/${userId}/${id}`,
         { method: "DELETE" }
       );
       if (!response.ok) {
@@ -78,7 +78,7 @@ export default function DashboardAdmin() {
               <div className="col-md-4 mb-4" key={wallpaper.id}>
                 <div className="card h-100 primary-bg shadow-sm border-0 overflow-hidden">
                   <img
-                    src={`http://127.0.0.1:8080/${wallpaper.path}`}
+                    src={`https://digitopia-project-backend.vercel.app/${wallpaper.path}`}
                     alt={wallpaper.name}
                     className="card-img-top wallpaper-thumbnail img-fluid"
                   />
@@ -104,31 +104,33 @@ export default function DashboardAdmin() {
         )}
       </div>
 
-<div
-  className="toast-container position-fixed top-0 end-0 p-3 "
-  style={{ zIndex: 1055 }}
->
-  <div
-    id="liveToast"
-    className="toast toast-notification secondary-bg primary-text"
-    role="alert"
-    aria-live="assertive"
-    aria-atomic="true"
-  >
-    <div className="toast-header main-color " style={{ background:"var(--faq-header)" }}>
-      <strong className="me-auto">Notification</strong>
-      <small>Just now</small>
-      <button
-        type="button"
-        className="btn-close btn-close-white"
-        data-bs-dismiss="toast"
-        aria-label="Close"
-      ></button>
-    </div>
-    <div className="toast-body" id="toastBody">
-    </div>
-  </div>
-</div>
+      <div
+        className="toast-container position-fixed top-0 end-0 p-3 "
+        style={{ zIndex: 1055 }}
+      >
+        <div
+          id="liveToast"
+          className="toast toast-notification secondary-bg primary-text"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div
+            className="toast-header main-color "
+            style={{ background: "var(--faq-header)" }}
+          >
+            <strong className="me-auto">Notification</strong>
+            <small>Just now</small>
+            <button
+              type="button"
+              className="btn-close btn-close-white"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div className="toast-body" id="toastBody"></div>
+        </div>
+      </div>
     </div>
   );
 }

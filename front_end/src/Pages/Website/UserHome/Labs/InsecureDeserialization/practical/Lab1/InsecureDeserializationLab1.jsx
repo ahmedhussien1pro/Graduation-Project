@@ -38,7 +38,7 @@ https://www.base64decode.org/
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8080/api/insecureDeserializationLab1",
+        "https://digitopia-project-backend.vercel.app/api/insecureDeserializationLab1",
         {
           method: "POST",
           headers: {

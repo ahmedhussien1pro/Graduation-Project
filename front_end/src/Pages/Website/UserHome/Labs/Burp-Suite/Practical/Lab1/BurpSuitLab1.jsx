@@ -17,7 +17,7 @@ export default function MoneyTransferLab() {
   const [recipientId, setRecipientId] = useState("");
   const [message, setMessage] = useState("");
   const userId = 1;
-  const apiUrl = "http://127.0.0.1:8080/api";
+  const apiUrl = "https://digitopia-project-backend.vercel.app/api";
 
   useEffect(() => {
     // PATCH request to update accounts

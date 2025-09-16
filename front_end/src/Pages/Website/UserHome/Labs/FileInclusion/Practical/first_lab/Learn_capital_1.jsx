@@ -5,7 +5,9 @@ export default function Learn_capital_1() {
     <>
       <ThemeSwitcher />
       <SelectionLab
-        api={"http://127.0.0.1:8080/api/fileInclusionLab1"}
+        api={
+          "https://digitopia-project-backend.vercel.app/api/fileInclusionLab1"
+        }
         description={
           "Select a file to view its content and the image of the capital. This simulates a file inclusion vulnerability in a controlled environment."
         }

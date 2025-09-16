@@ -8,7 +8,9 @@ export default function Passwd() {
 
   useEffect(() => {
     // Fetch data from the API
-    fetch("http://127.0.0.1:8080/api/pathTraversalLab1Product/etc/passwd")
+    fetch(
+      "https://digitopia-project-backend.vercel.app/api/pathTraversalLab1Product/etc/passwd"
+    )
       .then((response) => response.json())
       .then((data) => setMessage(data.message))
       .catch((error) => console.error("Error fetching data:", error));

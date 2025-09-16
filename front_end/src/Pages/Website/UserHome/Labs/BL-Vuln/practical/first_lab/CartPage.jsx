@@ -4,7 +4,7 @@ import ThemeSwitcher from "../../../../Components/ThemeSwitcher/ThemeSwitcher";
 import "../Lab_Style.css";
 const CartPage = () => {
   const [cart, setCart] = useState([]);
-  const BASE_URL = "http://localhost:8080/api";
+  const BASE_URL = "https://digitopia-project-backend.vercel.app/api";
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];

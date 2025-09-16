@@ -22,10 +22,12 @@ export default function Captcha_first() {
 
   async function fetchCaptcha() {
     try {
-      const res = await axios.get("http://127.0.0.1:8080/api/capatchalab1");
+      const res = await axios.get(
+        "https://digitopia-project-backend.vercel.app/api/capatchalab1"
+      );
       const imgSrc = res.data.image.startsWith("data:image")
         ? res.data.image
-        : `http://127.0.0.1:8080/${res.data.image}`;
+        : `https://digitopia-project-backend.vercel.app/${res.data.image}`;
 
       setImage(imgSrc);
       setStoredCaptchaID(res.data.id); // Store the ID for verification
@@ -39,7 +41,7 @@ export default function Captcha_first() {
   async function fetchComments() {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8080/api/capatchalab1comments"
+        "https://digitopia-project-backend.vercel.app/api/capatchalab1comments"
       );
 
       if (Array.isArray(response.data.comments)) {
@@ -66,7 +68,9 @@ export default function Captcha_first() {
     setErr("");
 
     try {
-      await axios.delete("http://127.0.0.1:8080/api/capatchalab1");
+      await axios.delete(
+        "https://digitopia-project-backend.vercel.app/api/capatchalab1"
+      );
 
       setComments([]);
       setComment("");
@@ -86,7 +90,7 @@ export default function Captcha_first() {
 
     try {
       const verifyRes = await axios.post(
-        "http://127.0.0.1:8080/api/capatchalab1",
+        "https://digitopia-project-backend.vercel.app/api/capatchalab1",
         {
           id: storedCaptchaID, // Use stored ID instead of captchaID
           captcha: captcha,
@@ -101,9 +105,12 @@ export default function Captcha_first() {
         fetchComments(); // Refresh captcha if wrong
         return;
       }
-      await axios.post("http://127.0.0.1:8080/api/captchalab1comments", {
-        comment,
-      });
+      await axios.post(
+        "https://digitopia-project-backend.vercel.app/api/captchalab1comments",
+        {
+          comment,
+        }
+      );
       setComments((prevComments) => [...prevComments, { id: nextId, comment }]);
       setNextId(nextId + 1);
       setComment("");
@@ -121,7 +128,7 @@ export default function Captcha_first() {
     <div className="body-captcha">
       <GoBackBtn />
       <ShowHintBtn hintText=" Look 🔍 at how CAPTCHA values are stored and verified.The CAPTCHA values are stored in array." />
-      <ThemeSwitcher/>
+      <ThemeSwitcher />
       <div className="captcha_first">
         <div className="container-captcha">
           <div className="card-captcha">
@@ -164,7 +171,11 @@ export default function Captcha_first() {
             </div>
           </div>
           <div className="reset mb-5">
-            <button onClick={deleteCaptcha} disabled={loading}className="captcha_reset_btn">
+            <button
+              onClick={deleteCaptcha}
+              disabled={loading}
+              className="captcha_reset_btn"
+            >
               {loading ? "Resetting..." : "Reset"}
             </button>
           </div>

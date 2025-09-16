@@ -34,13 +34,16 @@ const Contact = () => {
     setStatus({ loading: true, success: null, error: null });
 
     try {
-      const response = await fetch("http://127.0.0.1:8080/api/contactWithUs", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://digitopia-project-backend.vercel.app/api/contactWithUs",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);

@@ -19,7 +19,9 @@ export default function ShowProducts() {
     }
 
     axios
-      .get(`http://127.0.0.1:8080/api/pathTraversalLab1Product/${id}`)
+      .get(
+        `https://digitopia-project-backend.vercel.app/api/pathTraversalLab1Product/${id}`
+      )
       .then((response) => {
         if (response.data.message === "product found") {
           setProduct(response.data.data);
@@ -40,7 +42,7 @@ export default function ShowProducts() {
       <div style={{ backgroundColor: "var(--primary-bg)", minHeight: "100vh" }}>
         <div className="product-container">
           <img
-            src={`http://127.0.0.1:8080/${product.path}`}
+            src={`https://digitopia-project-backend.vercel.app/${product.path}`}
             alt={product.name}
             className="product-image"
           />

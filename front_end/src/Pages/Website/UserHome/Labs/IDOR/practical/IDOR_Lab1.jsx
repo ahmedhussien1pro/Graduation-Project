@@ -50,7 +50,7 @@ export default function IDOR_Lab1() {
   const fetchInvoiceData = async (invoiceId) => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:8080/api/IDORSLab1?id=${invoiceId}`
+        `https://digitopia-project-backend.vercel.app/api/IDORSLab1?id=${invoiceId}`
       );
 
       if (!response.ok) {
@@ -63,7 +63,7 @@ export default function IDOR_Lab1() {
       if (message === "Pdfs retrieved successfully") {
         const pdf = pdfs.find((pdf) => pdf.id === Number(invoiceId));
         if (pdf) {
-          return `http://127.0.0.1:8080/${pdf.path}`;
+          return `https://digitopia-project-backend.vercel.app/${pdf.path}`;
         }
       }
       return null;

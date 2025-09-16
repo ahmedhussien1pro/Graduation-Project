@@ -16,7 +16,7 @@ export default function CommandInjectionLab1() {
     // Send the POST request to the API
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8080/api/commendInjectionLab1",
+        "https://digitopia-project-backend.vercel.app/api/commendInjectionLab1",
         { ip }
       );
 

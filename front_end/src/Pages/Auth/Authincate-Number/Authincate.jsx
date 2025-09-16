@@ -1,8 +1,8 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookie from "cookie-universal";
 import { useNavigate } from "react-router-dom";
-import Preloader from "../../Website/Preloader/Preloader"
+import Preloader from "../../Website/Preloader/Preloader";
 import "./Auth.css";
 export default function Authenticate() {
   const [number, setNumber] = useState("");
@@ -24,7 +24,7 @@ export default function Authenticate() {
     }
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8080/api/authenticate",
+        "https://digitopia-project-backend.vercel.app/api/authenticate",
         {
           number,
         }
@@ -45,12 +45,12 @@ export default function Authenticate() {
       }
     }
   };
-   useEffect(() => {
-       const timer = setTimeout(() => {
-         setLoading(false);
-       }, 300);
-       return () => clearTimeout(timer);
-     }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="login-register-body">
       {loading && <Preloader loading={loading} />}

@@ -29,7 +29,7 @@ export default function SSTI_store() {
   const sendMessageToBackend = async (message) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8080/api/SSTIlab2/submitMessage",
+        "https://digitopia-project-backend.vercel.app/api/SSTIlab2/submitMessage",
         { message }
       );
       console.log("Message sent to backend:", response.data);
@@ -41,15 +41,11 @@ export default function SSTI_store() {
   const labreset = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8080/api/SSTIlab2Reset"
+        "https://digitopia-project-backend.vercel.app/api/SSTIlab2Reset"
       );
       if (response.status === 200) {
         // setResetMessage(response.data.message);
-        window.history.replaceState(
-          {},
-          "",
-          window.location.pathname
-        );
+        window.history.replaceState({}, "", window.location.pathname);
         window.location.reload();
       }
     } catch (error) {
@@ -60,7 +56,7 @@ export default function SSTI_store() {
   const checkStock = async (product) => {
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8080/api/SSTIlab2/${product.id}`
+        `https://digitopia-project-backend.vercel.app/api/SSTIlab2/${product.id}`
       );
       const message = response.data.message;
       window.history.pushState(
@@ -77,74 +73,74 @@ export default function SSTI_store() {
 
   return (
     <div className="ssti_body">
-    <div className="container-ssti3">
-      <GoBackBtn />
-      <ShowHintBtn hintText={hintMessage} />
-      <ThemeSwitcher/>
-      <button
-        onClick={labreset}
-        className="reset-btn"
-        style={{
-          width: "fit-content",
-          marginTop: "20px",
-          marginLeft: "20px",
-          borderRadius: "5px",
-          left: "0",
-        }}
-      >
-        Reset
-      </button>
-
-      {/* Display out-of-stock message if available */}
-      {outOfStockMessage && (
-        <div
-          className="out-of-stock-message"
+      <div className="container-ssti3">
+        <GoBackBtn />
+        <ShowHintBtn hintText={hintMessage} />
+        <ThemeSwitcher />
+        <button
+          onClick={labreset}
+          className="reset-btn"
           style={{
-            color: "red",
-            textAlign: "center",
-            marginBottom: "20px",
+            width: "fit-content",
             marginTop: "20px",
+            marginLeft: "20px",
+            borderRadius: "5px",
+            left: "0",
           }}
         >
-          <h2>{outOfStockMessage}</h2>
-        </div>
-      )}
-      {htmlContent && (
-        <div
-          className="backend-response"
-          dangerouslySetInnerHTML={{ __html: htmlContent }} // This will render the HTML content
-        />
-      )}
+          Reset
+        </button>
 
-      <div className="course-store-ssti">
-        <div className="container-store">
-          <h1 style={{ textAlign: "center", marginBottom: 60 }}>
-            Featured Products
-          </h1>
-          <div className="row-practice">
-            {products.map((product) => (
-              <div className="card-store" key={product.id}>
-                <div className="functions">
-                  <i className="fa-solid fa-cart-plus"></i>
-                  <i className="fa-regular fa-heart"></i>
+        {/* Display out-of-stock message if available */}
+        {outOfStockMessage && (
+          <div
+            className="out-of-stock-message"
+            style={{
+              color: "red",
+              textAlign: "center",
+              marginBottom: "20px",
+              marginTop: "20px",
+            }}
+          >
+            <h2>{outOfStockMessage}</h2>
+          </div>
+        )}
+        {htmlContent && (
+          <div
+            className="backend-response"
+            dangerouslySetInnerHTML={{ __html: htmlContent }} // This will render the HTML content
+          />
+        )}
+
+        <div className="course-store-ssti">
+          <div className="container-store">
+            <h1 style={{ textAlign: "center", marginBottom: 60 }}>
+              Featured Products
+            </h1>
+            <div className="row-practice">
+              {products.map((product) => (
+                <div className="card-store" key={product.id}>
+                  <div className="functions">
+                    <i className="fa-solid fa-cart-plus"></i>
+                    <i className="fa-regular fa-heart"></i>
+                  </div>
+                  <img src={product.image} alt={product.title} />
+                  <div className="card-text-store">
+                    <button
+                      onClick={() => checkStock(product)} // When clicked, send the product ID to the backend
+                      className="bg-transparent"
+                    >
+                      {product.title}
+                    </button>
+                    <p className="price">${product.price}</p>
+                    {/* Add the Check Stock link */}
+                  </div>
                 </div>
-                <img src={product.image} alt={product.title} />
-                <div className="card-text-store">
-                  <button
-                    onClick={() => checkStock(product)} // When clicked, send the product ID to the backend
-                    className="bg-transparent"
-                  >
-                    {product.title}
-                  </button>
-                  <p className="price">${product.price}</p>
-                  {/* Add the Check Stock link */}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }

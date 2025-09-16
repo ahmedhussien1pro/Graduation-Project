@@ -9,7 +9,7 @@ export default function SSRF_AdminLab() {
   const labreset = async () => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8080/api/SSRFLab/resetLab1"
+        "https://digitopia-project-backend.vercel.app/api/SSRFLab/resetLab1"
       );
       setUserNames(response.data.username);
     } catch (error) {
@@ -23,7 +23,7 @@ export default function SSRF_AdminLab() {
   const deleteUser = async (username) => {
     try {
       await axios.delete(
-        `http://127.0.0.1:8080/api/SSRFLab/deleteUser/${username}`
+        `https://digitopia-project-backend.vercel.app/api/SSRFLab/deleteUser/${username}`
       );
       setUserNames([]);
     } catch (error) {

@@ -26,12 +26,18 @@ const HeaderHome = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const res = await axios.get("http://127.0.0.1:8080/api/personalInfo", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await axios.get(
+          "https://digitopia-project-backend.vercel.app/api/personalInfo",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         const data = res.data.data;
         const imageUrl = data.image
-          ? `http://127.0.0.1:8080/${data.image.path.replace("\\", "/")}`
+          ? `https://digitopia-project-backend.vercel.app/${data.image.path.replace(
+              "\\",
+              "/"
+            )}`
           : "";
         setUserImage(imageUrl);
       } catch (error) {
@@ -122,7 +128,6 @@ const HeaderHome = () => {
                 <NavLink className="nav-link" to="/contact">
                   Contact
                 </NavLink>
-                
               </li>
             </ul>
 

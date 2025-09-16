@@ -56,15 +56,21 @@ export default function Writer() {
     const fetchData = async () => {
       if (!token) return;
       try {
-        const res = await axios.get(`http://127.0.0.1:8080/api/personalInfo`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const res = await axios.get(
+          `https://digitopia-project-backend.vercel.app/api/personalInfo`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         const data = res.data.data;
         const imageUrl = data.image
-          ? `http://127.0.0.1:8080/${data.image.path.replace("\\", "/")}`
+          ? `https://digitopia-project-backend.vercel.app/${data.image.path.replace(
+              "\\",
+              "/"
+            )}`
           : "";
 
         setFormData((prevData) => ({
@@ -134,12 +140,16 @@ export default function Writer() {
     }
 
     try {
-      await axios.post("http://127.0.0.1:8080/api/dataUser", submissionData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.post(
+        "https://digitopia-project-backend.vercel.app/api/dataUser",
+        submissionData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
       setLoading(false);
       setSuccess("Data submitted successfully!");

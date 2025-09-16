@@ -27,7 +27,7 @@ export default function UserList() {
   const deleteUser = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/vulnUsers/${id}`,
+        `https://digitopia-project-backend.vercel.app/api/vulnUsers/${id}`,
         {
           method: "DELETE",
           headers: {

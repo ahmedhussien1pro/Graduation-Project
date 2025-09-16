@@ -7,13 +7,12 @@ export default function ViewRegisters() {
   const [data, setData] = useState([]);
   const [deleteId, setDeleteId] = useState(null);
   const [message, setMessage] = useState({ text: "", type: "" });
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://127.0.0.1:8080/api/RaceConditionViewRegister"
+          "https://digitopia-project-backend.vercel.app/api/RaceConditionViewRegister"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -46,7 +45,7 @@ export default function ViewRegisters() {
   const handleConfirmDelete = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:8080/api/RaceConditionDeleteRegister/${deleteId}`,
+        `https://digitopia-project-backend.vercel.app/api/RaceConditionDeleteRegister/${deleteId}`,
         { method: "DELETE" }
       );
       if (!response.ok) {

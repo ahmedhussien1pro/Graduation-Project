@@ -42,7 +42,9 @@ const IDOR_Lab2 = () => {
   useEffect(() => {
     const fetchAccountBalance = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8080/api/IDORSlab2");
+        const response = await fetch(
+          "https://digitopia-project-backend.vercel.app/api/IDORSlab2"
+        );
         if (response.ok) {
           const data = await response.json();
           setAccountBalance(data.balance);
@@ -69,13 +71,16 @@ const IDOR_Lab2 = () => {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8080/api/IDORSlab2", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ticketPrice, numOfTickets }),
-      });
+      const response = await fetch(
+        "https://digitopia-project-backend.vercel.app/api/IDORSlab2",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ticketPrice, numOfTickets }),
+        }
+      );
 
       if (response.ok) {
         const result = await response.json();

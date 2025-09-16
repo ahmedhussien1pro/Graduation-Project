@@ -34,7 +34,7 @@ export default function InsecureDeserializationLab2() {
     };
     try {
       const response = await fetch(
-        "http://127.0.0.1:8080/api/insecureDeserializationLab2",
+        "https://digitopia-project-backend.vercel.app/api/insecureDeserializationLab2",
         {
           method: "POST",
           headers: {

@@ -18,7 +18,10 @@ const LoginSqlInjection = () => {
     setLoading(true);
     const data = { username, password };
     axios
-      .post("http://127.0.0.1:8080/api/Loginsqlinjection", data)
+      .post(
+        "https://digitopia-project-backend.vercel.app/api/Loginsqlinjection",
+        data
+      )
       .then((response) => {
         navigate(`/Sql_Injection/sql_Injection_lab/Welcome`);
       })

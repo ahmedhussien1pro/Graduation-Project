@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Cookie from "cookie-universal";
 import axios from "axios";
-import SearchIcon from "../Components/SearchIcon/SearchIcon"; 
+import SearchIcon from "../Components/SearchIcon/SearchIcon";
 import Aos from "aos";
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [profileListVisible, setProfileListVisible] = useState(false);
   const [userImage, setUserImage] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(""); 
+  const [searchTerm, setSearchTerm] = useState("");
 
   const cookie = Cookie();
   const token = cookie.get("CuberWeb");
@@ -27,12 +27,18 @@ const Header = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const res = await axios.get("http://127.0.0.1:8080/api/personalInfo", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await axios.get(
+          "https://digitopia-project-backend.vercel.app/api/personalInfo",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         const data = res.data.data;
         const imageUrl = data.image
-          ? `http://127.0.0.1:8080/${data.image.path.replace("\\", "/")}`
+          ? `https://digitopia-project-backend.vercel.app/${data.image.path.replace(
+              "\\",
+              "/"
+            )}`
           : "";
         setUserImage(imageUrl);
       } catch (error) {
@@ -53,9 +59,9 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
- useEffect(() => {
-      Aos.init({ duration: 1000 });
-    }, []);
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
     <header
       className={`header ${isScrolled ? "sticky" : ""}`}
@@ -128,7 +134,10 @@ const Header = () => {
 
               {/* Search Icon for small screens - placed in dropdown area */}
               <li className="nav-item dropdown-search-icon d-block d-md-none">
-                <SearchIcon searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                <SearchIcon
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                />
               </li>
             </ul>
 
@@ -136,7 +145,10 @@ const Header = () => {
             <div className="d-flex align-items-center gap-3">
               {/* Search Icon for medium+ screens */}
               <div className="search-icon-container d-none d-md-flex">
-                <SearchIcon searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                <SearchIcon
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                />
               </div>
 
               {token ? (

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Cookie from "cookie-universal";
 import { useNavigate } from "react-router-dom";
 import "./form.css";
@@ -13,7 +13,7 @@ export default function Register() {
   });
   const navigate = useNavigate();
   const cookie = Cookie();
-   const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [err, setErr] = useState("");
   function handleChange(e) {
     e.preventDefault();
@@ -23,7 +23,10 @@ export default function Register() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post("http://127.0.0.1:8080/api/register", form);
+      const res = await axios.post(
+        "https://digitopia-project-backend.vercel.app/api/register",
+        form
+      );
       setLoading(false);
       const token = res.data.token;
       cookie.set("CuberWeb", token);
@@ -37,12 +40,12 @@ export default function Register() {
       }
     }
   }
-useEffect(() => {
-        const timer = setTimeout(() => {
-          setLoading(false);
-        }, 200);
-        return () => clearTimeout(timer);
-      }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 200);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <body className="login-register-body">
       {loading && <Preloader loading={loading} />}

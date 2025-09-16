@@ -31,7 +31,9 @@ export default function Second_lab_XSS() {
   const [loading, setLoading] = useState(false);
   const fetchData = () => {
     try {
-      const respone = axios.delete("http://127.0.0.1:8080/api/comment");
+      const respone = axios.delete(
+        "https://digitopia-project-backend.vercel.app/api/comment"
+      );
       console.log("Done");
       setData(respone.data);
     } catch (err) {
@@ -49,7 +51,7 @@ export default function Second_lab_XSS() {
   };
 
   const handleSubmit = (e) => {
-    axios.delete("http://127.0.0.1:8080/api/comment");
+    axios.delete("https://digitopia-project-backend.vercel.app/api/comment");
     e.preventDefault();
     const content = e.target.content.value;
     const email = e.target.email.value;

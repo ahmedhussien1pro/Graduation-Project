@@ -7,7 +7,8 @@ import axios from "axios";
 import ThemeSwitcher from "../../../../Components/ThemeSwitcher/ThemeSwitcher";
 export default function SSRF_store2() {
   const [outOfStockMessage, setOutOfStockMessage] = useState("");
-  const apiUrl = "http://127.0.0.1:8080/api/SSRFLab/checkStock";
+  const apiUrl =
+    "https://digitopia-project-backend.vercel.app/api/SSRFLab/checkStock";
   const hintMessage = `<span>This lab is vulnerable to SSRF due to improper validation of user-supplied input. To solve the lab, you need to provide a URL that can be exploited to access internal resources (e.g., localhost).</span>`;
   const checkStock = async (product) => {
     try {

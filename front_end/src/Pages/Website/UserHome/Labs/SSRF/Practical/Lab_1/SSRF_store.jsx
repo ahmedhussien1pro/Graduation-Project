@@ -11,7 +11,9 @@ export default function SSRF_store1() {
   const hintMessage = `<span>This lab is vulnerable to SSRF due to improper validation of user-supplied input. To solve the lab, you need to provide a URL that can be exploited to access internal resources (e.g., localhost).</span>`;
   const labreset = async () => {
     try {
-      await axios.post("http://127.0.0.1:8080/api/SSRFLab/resetLab1");
+      await axios.post(
+        "https://digitopia-project-backend.vercel.app/api/SSRFLab/resetLab1"
+      );
     } catch (error) {
       console.error("Error creating users:", error);
     }
@@ -22,7 +24,7 @@ export default function SSRF_store1() {
   const checkStock = async (product) => {
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8080/api/SSRFLab/checkstock`,
+        `https://digitopia-project-backend.vercel.app/api/SSRFLab/checkstock`,
         {
           productId: product.id,
           stock: product.stock,
@@ -42,7 +44,9 @@ export default function SSRF_store1() {
   };
   const admin = async () => {
     try {
-      await axios.post(`http://127.0.0.1:8080/api/SSRFLab/admin`);
+      await axios.post(
+        `https://digitopia-project-backend.vercel.app/api/SSRFLab/admin`
+      );
       window.history.pushState({}, "", `store/admin`);
       window.location.reload();
     } catch (error) {

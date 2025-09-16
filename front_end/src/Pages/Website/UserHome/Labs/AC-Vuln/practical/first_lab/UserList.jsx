@@ -15,12 +15,15 @@ export default function UserList() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/vulnUsers", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await fetch(
+          "https://digitopia-project-backend.vercel.app/api/vulnUsers",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         if (response.ok) {
           const data = await response.json();
           setUsers(data);
@@ -40,7 +43,7 @@ export default function UserList() {
   const deleteUser = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/vulnUsers/${id}`,
+        `https://digitopia-project-backend.vercel.app/api/vulnUsers/${id}`,
         {
           method: "DELETE",
           headers: {

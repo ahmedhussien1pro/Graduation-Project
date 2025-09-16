@@ -33,7 +33,7 @@ export default function BlogItem() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8080/api/SSTI1Comments",
+        "https://digitopia-project-backend.vercel.app/api/SSTI1Comments",
         {
           comment,
           name,
@@ -67,7 +67,7 @@ export default function BlogItem() {
   async function fetchComments() {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8080/api/SSTI1Comments"
+        "https://digitopia-project-backend.vercel.app/api/SSTI1Comments"
       );
 
       if (Array.isArray(response.data)) {
@@ -92,7 +92,7 @@ export default function BlogItem() {
   const labreset = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8080/api/SSTIlab1Reset"
+        "https://digitopia-project-backend.vercel.app/api/SSTIlab1Reset"
       );
       fetchComments();
       if (response.status === 200) {

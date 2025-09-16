@@ -16,7 +16,7 @@ export default function User() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://127.0.0.1:8080/api/currentUser/${id}`)
+      .get(`https://digitopia-project-backend.vercel.app/api/currentUser/${id}`)
       .then((response) => {
         setName(response.data.data.name);
         setEmail(response.data.data.email);
@@ -34,11 +34,14 @@ export default function User() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.put(`http://127.0.0.1:8080/api/user/edit/${id}`, {
-        name: name,
-        email: email,
-        role: role,
-      });
+      await axios.put(
+        `https://digitopia-project-backend.vercel.app/api/user/edit/${id}`,
+        {
+          name: name,
+          email: email,
+          role: role,
+        }
+      );
       navigate("/dashboard/users");
     } catch (error) {
       setLoading(false);

@@ -6,7 +6,7 @@ import products from "../../data.json";
 import axios from "axios";
 
 // Lab hint for SSRF
-const hintMessage = `<span>This lab is vulnerable to SSRF due to improper validation of user-supplied input. To solve the lab, you need to submit a URL that could access internal resources such as <strong>http://localhost/admin</strong> or <strong>http://127.0.0.1/secret.txt</strong>.</span>`;
+const hintMessage = `<span>This lab is vulnerable to SSRF due to improper validation of user-supplied input. To solve the lab, you need to submit a URL that could access internal resources such as <strong>https://digitopia-project-backend.vercel.app/admin</strong> or <strong>https://digitopia-project-backend.vercel.app/secret.txt</strong>.</span>`;
 
 export default function SSRF_AdminLab1() {
   const [responseFromBackend, setResponseFromBackend] = useState(""); // Store backend response
@@ -19,7 +19,7 @@ export default function SSRF_AdminLab1() {
     const checkAdminStatus = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8080/api/check-admin"
+          "https://digitopia-project-backend.vercel.app/api/check-admin"
         );
         if (response.data.isAdmin) {
           setIsAdmin(true);
@@ -40,7 +40,7 @@ export default function SSRF_AdminLab1() {
   const sendUrlToBackend = async (url) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8080/api/ssrf/admin-request", // Backend endpoint
+        "https://digitopia-project-backend.vercel.app/api/ssrf/admin-request", // Backend endpoint
         { url } // Send user-supplied URL to backend
       );
 
@@ -56,7 +56,7 @@ export default function SSRF_AdminLab1() {
   const deleteFile = async () => {
     try {
       const response = await axios.delete(
-        "http://127.0.0.1:8080/api/delete-file",
+        "https://digitopia-project-backend.vercel.app/api/delete-file",
         {
           data: { fileName: "x.txt" }, // Specify the file to delete
         }
@@ -74,7 +74,7 @@ export default function SSRF_AdminLab1() {
   const labreset = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8080/api/SSRFLabReset"
+        "https://digitopia-project-backend.vercel.app/api/SSRFLabReset"
       );
       if (response.status === 200) {
         window.history.replaceState({}, "", window.location.pathname);
@@ -89,7 +89,7 @@ export default function SSRF_AdminLab1() {
   const checkStock = async (product) => {
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8080/api/SSRFLab/checkStock`,
+        `https://digitopia-project-backend.vercel.app/api/SSRFLab/checkStock`,
         { productId: product.id }
       );
 

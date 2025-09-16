@@ -8,11 +8,14 @@ export default function Logout() {
   const navigate = useNavigate();
   async function handleLogout() {
     try {
-      const res = await axios.get("http://127.0.0.1:8080/api/logout", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axios.get(
+        "https://digitopia-project-backend.vercel.app/api/logout",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       console.log(res);
       cookie.remove("CuberWeb");
       navigate("/login", { replace: true });

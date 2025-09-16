@@ -25,7 +25,7 @@ export default function ShoppingCart() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8080/api/ShoppingCart")
+      .get("https://digitopia-project-backend.vercel.app/api/ShoppingCart")
       .then((response) => {
         setProducts(response.data.products);
         setCouponCode(response.data.couponCode);
@@ -43,9 +43,12 @@ export default function ShoppingCart() {
 
   const updateTotalOnServer = (updatedTotal) => {
     axios
-      .post("http://127.0.0.1:8080/api/ShoppingCart/price", {
-        totalPrice: updatedTotal,
-      })
+      .post(
+        "https://digitopia-project-backend.vercel.app/api/ShoppingCart/price",
+        {
+          totalPrice: updatedTotal,
+        }
+      )
       .catch((error) => console.error("Error updating total:", error));
   };
 
@@ -56,7 +59,7 @@ export default function ShoppingCart() {
 
   const applyDiscount = () => {
     axios
-      .post("http://127.0.0.1:8080/api/ShoppingCart", {
+      .post("https://digitopia-project-backend.vercel.app/api/ShoppingCart", {
         couponCode: userCoupon,
       })
       .then((response) => {
@@ -69,9 +72,12 @@ export default function ShoppingCart() {
 
   const clearDiscount = () => {
     axios
-      .post("http://127.0.0.1:8080/api/lab2RaceCondition/cleardiscount", {
-        coupon: userCoupon,
-      })
+      .post(
+        "https://digitopia-project-backend.vercel.app/api/lab2RaceCondition/cleardiscount",
+        {
+          coupon: userCoupon,
+        }
+      )
       .then((response) => {
         setDiscount(0);
         setUserCoupon("");
@@ -86,7 +92,9 @@ export default function ShoppingCart() {
 
   const resetCart = () => {
     axios
-      .delete("http://127.0.0.1:8080/api/Resetlab2RaceCondition")
+      .delete(
+        "https://digitopia-project-backend.vercel.app/api/Resetlab2RaceCondition"
+      )
       .then(() => {
         setCart([]);
         setDiscount(0);

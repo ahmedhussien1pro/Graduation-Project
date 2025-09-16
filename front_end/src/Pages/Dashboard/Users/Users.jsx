@@ -20,11 +20,14 @@ export default function Users() {
     const fetchUserData = async () => {
       if (token) {
         try {
-          const res = await axios.get("http://127.0.0.1:8080/api/user", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          const res = await axios.get(
+            "https://digitopia-project-backend.vercel.app/api/user",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
           setCurrentUser(res.data.data);
         } catch (error) {
           console.error(error);
@@ -35,7 +38,7 @@ export default function Users() {
   }, [token]);
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8080/api/users", {
+      .get("https://digitopia-project-backend.vercel.app/api/users", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -90,11 +93,14 @@ export default function Users() {
   async function handleDelete(id) {
     if (currentUser.id !== id) {
       try {
-        await axios.delete(`http://127.0.0.1:8080/api/user/${id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        await axios.delete(
+          `https://digitopia-project-backend.vercel.app/api/user/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setDeleteUser((prev) => !prev);
       } catch (err) {
         console.log(err);

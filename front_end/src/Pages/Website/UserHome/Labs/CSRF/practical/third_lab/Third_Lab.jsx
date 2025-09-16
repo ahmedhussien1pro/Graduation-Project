@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ThemeSwitcher from "../../../../Components/ThemeSwitcher/ThemeSwitcher";
 export default function Third_Lab() {
-  const apiUrl = "http://127.0.0.1:8080/api";
+  const apiUrl = "https://digitopia-project-backend.vercel.app/api";
   const [users, setUsers] = useState([]);
   const [transferAmount, setTransferAmount] = useState("");
   const [recipientName, setRecipientName] = useState("");

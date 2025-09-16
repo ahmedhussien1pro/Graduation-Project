@@ -30,7 +30,7 @@ export default function Settings() {
     setShowSuccessMessage(false);
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8080/api/reset-password",
+        "https://digitopia-project-backend.vercel.app/api/reset-password",
         {
           oldPassword,
           newPassword,

@@ -22,13 +22,16 @@ export default function BurpSuitDescriptions() {
 
     const fetchWallpaperDetails = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:8080/api/burpsuitelab3/${id}`, {
-          headers: {
-            "Cache-Control": "no-cache",
-            "Pragma": "no-cache",
+        const response = await fetch(
+          `https://digitopia-project-backend.vercel.app/api/burpsuitelab3/${id}`,
+          {
+            headers: {
+              "Cache-Control": "no-cache",
+              Pragma: "no-cache",
+            },
           }
-        });
-        
+        );
+
         if (!response.ok) {
           throw new Error("Failed to fetch wallpaper details");
         }
@@ -61,7 +64,7 @@ export default function BurpSuitDescriptions() {
       <div className="wallpaper-center">
         <div className="wallpaper-card text-center">
           <img
-            src={`http://127.0.0.1:8080/${wallpaper.path}`}
+            src={`https://digitopia-project-backend.vercel.app/${wallpaper.path}`}
             alt={wallpaper.name}
             className="wallpaper-card__image"
             onClick={() => navigate("/Burp_Suit/Burp_Suit_Labs/lab3")}

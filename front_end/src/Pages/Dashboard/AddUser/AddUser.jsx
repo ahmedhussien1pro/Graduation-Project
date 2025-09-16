@@ -18,12 +18,15 @@ export default function AddUser() {
     setLoading(true);
     setError(null);
     try {
-      await axios.post("http://127.0.0.1:8080/api/user/add", {
-        name: name,
-        email: email,
-        password: password,
-        role: role,
-      });
+      await axios.post(
+        "https://digitopia-project-backend.vercel.app/api/user/add",
+        {
+          name: name,
+          email: email,
+          password: password,
+          role: role,
+        }
+      );
       navigate("/dashboard/users");
     } catch (error) {
       setLoading(false);

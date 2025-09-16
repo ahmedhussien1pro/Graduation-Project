@@ -40,13 +40,16 @@ export default function CommandInjectionLab2() {
       const requestData = { ip: validIp, queryParams: queryParams };
       console.log("Request Data:", requestData);
 
-      fetch("http://127.0.0.1:8080/api/commendInjectionLab2", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestData),
-      })
+      fetch(
+        "https://digitopia-project-backend.vercel.app/api/commendInjectionLab2",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        }
+      )
         .then((response) => {
           if (!response.ok) {
             console.error(

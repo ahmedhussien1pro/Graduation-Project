@@ -6,7 +6,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const BASE_URL = "http://localhost:8080/api";
+  const BASE_URL = "https://digitopia-project-backend.vercel.app/api";
 
   const handleLogin = async (e) => {
     e.preventDefault();

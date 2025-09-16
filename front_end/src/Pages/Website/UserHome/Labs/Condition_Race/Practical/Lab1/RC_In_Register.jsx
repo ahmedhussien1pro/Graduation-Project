@@ -32,7 +32,7 @@ export default function RC_In_Register() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8080/api/RaceConditionRegister",
+        "https://digitopia-project-backend.vercel.app/api/RaceConditionRegister",
         formData
       );
       setMessage(response.data.msg || "Registration successful!");

@@ -10,21 +10,24 @@ export default function RequierAuth({ allowedRole }) {
   const navigate = useNavigate();
   const cookie = Cookie();
   const token = cookie.get("CuberWeb");
-   useEffect(() => {
-        const timer = setTimeout(() => {
-          setLoading(false);
-        }, 300);
-        return () => clearTimeout(timer);
-      }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
   useEffect(() => {
     const fetchUserData = async () => {
       if (token) {
         try {
-          const res = await axios.get("http://127.0.0.1:8080/api/user", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          const res = await axios.get(
+            "https://digitopia-project-backend.vercel.app/api/user",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
           setUser(res.data.data);
         } catch (error) {
           console.error(error);
