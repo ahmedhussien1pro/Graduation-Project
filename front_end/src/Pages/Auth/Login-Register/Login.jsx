@@ -34,12 +34,21 @@ export default function Login() {
       navigate("/home");
     } catch (error) {
       setLoading(false);
+      setLoading(false);
       if (error.response) {
-        if (error.response.status === 401) {
-          setErr("Wrong Email or Password");
+        const status = error.response.status;
+        const message = error.response.data;
+
+        if (status === 404 && message === "Not a user") {
+          setErr("User does not exist");
+        } else if (status === 401 && message === "Invalid name or password") {
+          setErr("Wrong password");
+        } else if (status === 401 && message === "User not verified") {
+          setErr("Your account is not verified yet");
         } else {
-          setErr("Internal server error");
+          setErr("Something went wrong. Please try again.");
         }
+
         console.error(error.response.data);
       } else {
         setErr("Network Error");
