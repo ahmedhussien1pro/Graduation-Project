@@ -17,7 +17,7 @@ export default function Topbar() {
   useEffect(() => {
     if (token) {
       axios
-        .get("http://127.0.0.1:8080/api/user", {
+        .get("https://digitopia-project-backend.vercel.app/api/user", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -37,7 +37,7 @@ export default function Topbar() {
   async function handleLogout() {
     try {
       await axios.post(
-        "http://127.0.0.1:8080/api/logout",
+        "https://digitopia-project-backend.vercel.app/api/logout",
         {},
         {
           headers: {

@@ -30,9 +30,12 @@ const Sidebar = () => {
 
     const fetchUser = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8080/api/user", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await axios.get(
+          "https://digitopia-project-backend.vercel.app/api/user",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setUser(response.data.data);
       } catch (error) {
         console.error("API request failed:", error);
@@ -136,7 +139,7 @@ const Sidebar = () => {
                     Settings
                   </span>
                 </NavLink>
-                 <NavLink
+                <NavLink
                   to="/dashboard/Theme"
                   className="navlink active side-bar-link"
                 >
@@ -148,7 +151,7 @@ const Sidebar = () => {
                     className="text"
                     style={{ display: isOpen ? "block" : "none" }}
                   >
-                  ThemeCustomize
+                    ThemeCustomize
                   </span>
                 </NavLink>
               </>

@@ -51,7 +51,7 @@ export default function Login() {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <body className="login-register-body">
+    <div className="login-register-body">
       {loading && <Preloader loading={loading} />}
       <div className="container">
         <div className="rows hh-100">
@@ -112,6 +112,6 @@ export default function Login() {
           </form>
         </div>
       </div>
-    </body>
+    </div>
   );
 }
