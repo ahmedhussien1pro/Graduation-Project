@@ -1,0 +1,31 @@
+
+
+.counts {
+  padding: 25px 0;
+}
+.counts-container{
+  box-shadow: rgba(254, 254, 254, 0.1) 0px 0px 16px;
+}
+
+.counts .stats-item {
+  padding: 30px;
+  width: 100%;
+  background-color: var(--secondary-bg);
+}
+
+.counts .stats-item span {
+  font-size: 3rem;
+  display: block;
+  color: var(--main-color);
+  font-weight: 600;
+  
+ 
+}
+
+.counts .stats-item p {
+  color: color-mix(in srgb, var(--primary-text), transparent 40%);
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}

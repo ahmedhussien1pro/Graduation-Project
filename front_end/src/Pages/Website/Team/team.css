@@ -1,0 +1,111 @@
+.team-section {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--primary-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.team-section__member {
+  max-width: 25rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.team-section__member-img {
+  width: 100%;
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
+}
+
+.team-section__member-img img {
+  width: 100%;
+}
+
+.team-section__member-content {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: var(--secondary-bg);
+  z-index: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.team-section__member-content h4 {
+  display: block;
+  font-size: 1.6rem;
+  text-align: left;
+  color: var(--main-color);
+  letter-spacing: 2px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 2rem;
+}
+
+.team-section__member-content h4 span {
+  color: var(--secondary-text);
+  letter-spacing: 2px;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+.team-section__member-social {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+.team-section__member-social a {
+  color: var(--secondary-text);
+  font-size: 1.6rem;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  border: 1px solid var(--secondary-text);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-section__member-social a:hover {
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.team-section__member-social a i {
+  font-size: 1.2rem;
+}
+
+.team-section__department-title {
+  font-size: 2.5rem;
+  color: var(--primary-text);
+  font-family: cursive;
+  text-align: center;
+  margin: 2rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.team-section__department-title::before,
+.team-section__department-title::after {
+  content: '';
+  display: inline-block;
+  width: 4rem;
+  height: 0.2rem;
+  background-color: var(--main-color);
+  margin: 0 .5rem;
+}

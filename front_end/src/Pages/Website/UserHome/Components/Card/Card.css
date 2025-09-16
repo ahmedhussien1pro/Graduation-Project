@@ -1,0 +1,120 @@
+
+.lab-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+  max-width: 400px;
+  position: relative;
+  background: var(--secondary-bg);
+  border: 1px solid var(--glass-effect);
+  border-radius: 4px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.lab-card:hover {
+  box-shadow: 0 8px 24px var(--glass-effect);
+  transform: translateY(-4px);
+}
+.lab-card__image-container {
+  background-color: #fff;
+  width: 100%;
+  padding-top: 56.25%; 
+  position: relative;
+  overflow: hidden;
+}
+
+.lab-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lab-card__content-wrapper {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 56.25%); 
+  justify-content: space-between;
+}
+
+.lab-card__title {
+  margin: 0 0 8px;
+  font-size: 1.25rem ;
+  color: var(--main-color);
+  font-weight: 600;
+  /* font-family:; */
+}
+
+.lab-card__description {
+  margin: 0;
+  color: var(--secondary-text);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lab-card__difficulty-badge {
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background-color: #e0e0e0;
+  color: #333;
+  margin-top: 8px;
+}
+
+.lab-card__badge-icon {
+  margin-right: 4px;
+}
+
+.lab-card__difficulty-badge--easy {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.lab-card__difficulty-badge--medium {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.lab-card__difficulty-badge--hard {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+
+.lab-card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(100%);
+  opacity: 0;
+  /* height: 80%; */
+  background-color: #3a3c40;
+  padding: 1rem 1rem 2rem;
+  /* box-shadow: 0 -2px 8px var(--glass-effect); */
+  transition: all 0.4s ease-in-out;
+}
+
+.lab-card__overlay-description {
+  margin: 0;
+  margin-bottom: 1rem;
+  color: var(--primary-text);
+  line-height: 1.6;
+}
+
+.lab-card:hover .lab-card__overlay {
+  transform: translateY(0);
+  opacity: 1;
+}

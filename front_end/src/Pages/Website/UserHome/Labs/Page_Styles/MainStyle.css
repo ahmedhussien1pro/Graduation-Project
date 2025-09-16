@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.open-sans {
+  font-family: "Open Sans", serif !important;
+  font-style: normal;
+}
+
+.content__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--main-color);
+}
+
+.content__subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--main-color3);
+  background: var(--glass-effect);
+  width: fit-content;
+}
+
+.content__code {
+  margin-block: 1rem;
+  color: var(--main-color);
+  background: var(--glass-effect);
+  width: fit-content;
+  padding: 0.2rem;
+}
+
+.Content__img--box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.underline {
+  text-decoration: underline !important;
+}
+
+.terminal-container {
+  margin-bottom: 20px;
+}
+
+.terminal-content {
+  position: relative;
+}
+
+.terminal-top {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background: rgb(62, 69, 82);
+  color: white;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.terminal-top::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 14px;
+  left: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: rgb(255, 68, 68);
+  box-shadow: rgb(255, 68, 68) 0px 0px 0px 2px,
+    rgb(178, 224, 40) 1.5rem 0px 0px 2px,
+    rgb(255, 156, 7) 3rem 0px 0px 2px;
+}
+
+.terminal-code {
+  display: flex;
+  padding: 20px;
+}
+
+.language-bash {
+  color: rgb(186, 200, 212);
+  background: rgb(40, 44, 51);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  tab-size: 4;
+  margin-top: 0;
+  margin-bottom: 2px;
+  padding: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.custom__table {
+  color: var(--primary-text);
+  background: var(--secondary-bg);
+
+}
+
+.custom__table thead,
+.custom__table th {
+  color: var(--primary-text) !important;
+  background: var(--primary-bg) !important;
+}
+
+.custom__table td,
+.custom__table tr:hover {
+  color: var(--primary-text) !important;
+  background: var(--secondary-bg) !important;
+}

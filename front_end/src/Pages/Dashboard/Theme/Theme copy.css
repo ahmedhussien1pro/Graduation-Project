@@ -1,0 +1,79 @@
+.theme-customizer {
+  position: relative;
+    /* z-index: 1;
+    right: 0;
+    top: 150px;
+  z-index: 100; */
+  display: inline-block;
+}
+
+.theme-toggle-btn {
+  color: var(--primary-text);
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.theme-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--secondary-bg);
+  border: 1px solid var(--link-bg);
+  color: var(--primary-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 1rem;
+  z-index: 10000;
+  min-width: 250px;
+}
+
+.preset-options {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.preset-btn {
+  background: var(--link-bg);
+  color: var(--txt-color);
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-grow: 1;
+}
+.preset-btn:hover {
+  background: var(--main-color4);
+}
+.preset-btn.active {
+  background: var(--main-color);
+}
+
+.custom-colors {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.color-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.color-picker label {
+  width: 100%;
+  color: var(--txt-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.color-picker input[type="color"] {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
