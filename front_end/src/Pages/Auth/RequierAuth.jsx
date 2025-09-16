@@ -10,48 +10,44 @@ export default function RequierAuth({ allowedRole }) {
   const navigate = useNavigate();
   const cookie = Cookie();
   const token = cookie.get("CuberWeb");
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 300);
-    return () => clearTimeout(timer);
-  }, []);
+
   useEffect(() => {
     const fetchUserData = async () => {
-      if (token) {
-        try {
-          const res = await axios.get(
-            "https://digitopia-project-backend.vercel.app/api/user",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
-          setUser(res.data.data);
-        } catch (error) {
-          console.error(error);
-          navigate("/login", { replace: true });
-        } finally {
-          setLoading(false);
-        }
-      } else {
+      if (!token) {
+        setLoading(false);
         navigate("/login", { replace: true });
+        return;
+      }
+
+      try {
+        const res = await axios.get(
+          "https://digitopia-project-backend.vercel.app/api/user",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setUser(res.data.data);
+      } catch (error) {
+        console.error("Auth error:", error);
+        cookie.remove("CuberWeb"); // مهم
+        navigate("/login", { replace: true });
+      } finally {
         setLoading(false);
       }
     };
+
     fetchUserData();
   }, [token, navigate]);
-  if (loading) {
-    return <Preloader loading={loading} />;
-  }
-  return user ? (
-    allowedRole.includes(user.role) ? (
-      <Outlet />
-    ) : (
-      <Error403 role={user.role} />
-    )
+
+  if (loading) return <Preloader loading={loading} />;
+
+  if (!user) return <Navigate to="/login" replace />;
+
+  return allowedRole.includes(user.role) ? (
+    <Outlet />
   ) : (
-    <Navigate to="/login" replace={true} />
+    <Error403 role={user.role} />
   );
 }

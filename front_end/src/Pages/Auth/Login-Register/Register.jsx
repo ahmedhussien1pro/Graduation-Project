@@ -29,7 +29,8 @@ export default function Register() {
       );
       setLoading(false);
       const token = res.data.token;
-      cookie.set("CuberWeb", token);
+      cookie.set("CuberWeb", token, { path: "/" });
+
       navigate("/authenticate", { replace: true });
     } catch (error) {
       setLoading(false);

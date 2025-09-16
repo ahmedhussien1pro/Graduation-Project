@@ -165,7 +165,7 @@ const Header = () => {
                         style={{ width: "50px", height: "50px" }}
                       />
                     ) : (
-                      <i class="fa-solid fa-circle-user primary-text fs-2"></i>
+                      <i className="fa-solid fa-circle-user primary-text fs-2"></i>
                     )}
                   </button>
                   {profileListVisible && (

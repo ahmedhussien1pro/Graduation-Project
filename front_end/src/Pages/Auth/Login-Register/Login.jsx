@@ -4,6 +4,7 @@ import Cookie from "cookie-universal";
 import "./form.css";
 import "./register-login.css";
 import Preloader from "../../Website/Preloader/Preloader";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
   const [form, setForm] = useState({
     email: "",
@@ -11,6 +12,7 @@ export default function Login() {
   });
   const cookie = Cookie();
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
   const [err, setErr] = useState("");
   function handleChange(e) {
     e.preventDefault();
@@ -28,7 +30,8 @@ export default function Login() {
       setLoading(false);
       const token = res.data.data.token;
       cookie.set("CuberWeb", token);
-      window.location.pathname = `/home`;
+      // window.location.pathname = `/home`;
+      navigate("/home");
     } catch (error) {
       setLoading(false);
       if (error.response) {
