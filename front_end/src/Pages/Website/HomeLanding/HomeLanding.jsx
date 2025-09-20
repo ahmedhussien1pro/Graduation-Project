@@ -103,7 +103,7 @@ const ParticlesComponent = () => {
             </p>
 
             <div className="mt-4">
-              <Link to="#courses" className="btn btn-custom me-3 mb-2">
+              <Link to="/home" className="btn btn-custom me-3 mb-2">
                 Discover Our Popular Courses
               </Link>
               <Link to="#" className="text-white fw-bold mb-2 d-inline-block">

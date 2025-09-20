@@ -30,7 +30,6 @@ export default function Login() {
       setLoading(false);
       const token = res.data.data.token;
       cookie.set("CuberWeb", token);
-      // window.location.pathname = `/home`;
       navigate("/home");
     } catch (error) {
       setLoading(false);

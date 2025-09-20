@@ -555,7 +555,82 @@ const courseData = [
     link: "/jwtattacks",
     favorite: false,
     myCourses: false,
+  },{
+    id: 31,
+    category: "Fav Topics",
+    title: "Regular expressions",
+    description:
+      "Craft effective regular expressions for text matching, searching, and parsing.",
+    topics: [
+      "Basics of Regex",
+      "Character Classes",
+      "Quantifiers and Grouping",
+      "Practical Examples",
+    ],
+    difficulty: "Beginner",
+    image: require("../../assets/img/Regex/Landing.jpg"),
+    state: "published",
+    link: "/Regex",
+    favorite: false,
+    myCourses: false,
   },
+  {
+    id: 32,
+    category: "My Courses",
+    title: "Cross Site Request Forgery (CSRF)",
+    description:
+      "Understand CSRF attack vectors, mitigation techniques, and prevention best practices.",
+    topics: [
+      "Understanding CSRF",
+      "Exploitation Methods",
+      "Prevention Techniques",
+      "Real-world Examples",
+    ],
+    difficulty: "Intermediate",
+    image: require("../../assets/img/CSRF/landing.jpg"),
+    state: "published",
+    link: "/CSRF",
+    favorite: false,
+    myCourses: false,
+  },
+  {
+    id: 33,
+    category: "My Courses",
+    title: "Burp Suite",
+    description:
+      "Master Burp Suite fundamentals, empowering cybersecurity testing and vulnerability assessment.",
+    topics: [
+      "Learn about different careers in cyber",
+      "Hack your first application",
+      "Defend against a live cyber attack",
+      "Explore security topics in the industry",
+    ],
+    difficulty: "Intermediate",
+    image: require("../../assets/img/Burp_Suit/BurpSuit_Content.png"),
+    state: "published",
+    link: "/Burp_Suit",
+    favorite: false,
+    myCourses: false,
+  }, {
+    id: 34,
+    category: "My Courses",
+    title: "Cookies",
+    description:
+      "Understand cookies’ roles, security implications, storage methods, and manipulation techniques.",
+    topics: [
+      "What Are Cookies?",
+      "What are Cookies Used For?",
+      "Where are Cookies Stored?",
+      "Cookies Manipulation",
+    ],
+    difficulty: "Beginner",
+    image: require("../../assets/img/cookies/Cookies_transparent.png"),
+    state: "published",
+    link: "/cookies",
+    favorite: false,
+    myCourses: false,
+  },
+  
 ];
 
 export default courseData;

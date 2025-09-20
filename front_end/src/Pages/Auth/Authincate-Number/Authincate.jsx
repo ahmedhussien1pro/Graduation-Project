@@ -32,7 +32,7 @@ export default function Authenticate() {
       const token = response.data.token;
       cookie.set("CuberWeb", token);
       if (response.status === 200) {
-        navigate("/dashboard/personal-information");
+        navigate("/home");
       }
     } catch (error) {
       setLoading(false);

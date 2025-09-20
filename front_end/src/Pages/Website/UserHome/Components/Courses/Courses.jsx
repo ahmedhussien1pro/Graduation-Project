@@ -42,31 +42,32 @@ const Courses = () => {
       selectedCategory === "All Courses" ||
       course.category === selectedCategory;
 
-    return  matchesCategory;
+    return matchesCategory;
   });
 
   return (
     <div className="course">
-      
       <div className="container">
         <div className="menu-row">
           <div className="category-menu-container">
-  <ul className="category-list">
-    {categories.map((category) => (
-      <li className="category-item" key={category.name}>
-        <button
-          className={`category-button ${selectedCategory === category.name ? "active" : ""}`}
-          onClick={() => handleCategorySelect(category.name)}
-        >
-          <span className="category-icon">{category.icon}</span>
-          <span className="category-text ms-2">{category.name}</span>
-        </button>
-      </li>
-    ))}
-  </ul>
-</div>
+            <ul className="category-list">
+              {categories.map((category) => (
+                <li className="category-item" key={category.name}>
+                  <button
+                    className={`category-button ${
+                      selectedCategory === category.name ? "active" : ""
+                    }`}
+                    onClick={() => handleCategorySelect(category.name)}
+                  >
+                    <span className="category-icon">{category.icon}</span>
+                    <span className="category-text ms-2">{category.name}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="row ">
+        <div className="row gap-4 justify-content-center">
           <PaginatedCourses filteredCourses={filteredCourses} />
         </div>
       </div>

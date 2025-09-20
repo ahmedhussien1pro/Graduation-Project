@@ -75,7 +75,7 @@
 
 .course-card-container {
   padding: 0.8rem;
-  /* height: 100%;  */
+  max-width:350px;
 }
 
 .courses-grid {

@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import "./team.css";
 import Aos from "aos";
-import image1 from "../assets/img/team-img/member1.jpg";
+import image1 from "../assets/img/team-img/ahmed.jpg";
 import PhotoDeveloperAhmed from "../assets/img/team-img/Team-4.webp";
-import PhotoDeveloperFront from "../assets/img/team-img/4.jpg";
+import PhotoDeveloperFront from "../assets/img/team-img/ebrahimdel3.jpg";
 import PhotoDeveloperBack from "../assets/img/team-img/9.jpg";
-import PhotoCyberTeam1 from "../assets/img/team-img/Team-3.webp";
-import PhotoCyberTeam2 from "../assets/img/team-img/team-7UT4L65.jpg";
-import PhotoCyberTeam3 from "../assets/img/team-img/team-52G3BWD.jpg";
+import PhotoCyberTeam1 from "../assets/img/team-img/nasar.jpg";
+import PhotoCyberTeam2 from "../assets/img/team-img/radwan.jpg";
+import PhotoCyberTeam3 from "../assets/img/team-img/emad.jpg";
 
 const teamMembers = [
   {
@@ -102,6 +102,7 @@ const TeamSection = () => {
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
+
   return (
     <section id="team" className="team-section section">
       <div className="container">
@@ -109,50 +110,51 @@ const TeamSection = () => {
           <h2 className="courses__title">Our Team</h2>
           <p className="courses__subtitle">team members</p>
         </div>
+
         {departments.map((dept) => {
           const deptMembers = teamMembers.filter(
             (member) => member.department === dept
           );
+
           return (
             <div key={dept} className="team-section__department mb-5">
               <h3 className="team-section__department-title text-center mb-4">
                 {dept} Team
               </h3>
 
-              <div className="row justify-content-center">
+              <div className="row justify-content-center gap-4">
                 {deptMembers.map((member) => (
                   <div
                     key={member.id}
-                    className="col-md-4 col-sm-6 mb-4 team-section__member-wrapper  team-section__member card bg-transparent"
+                    className="col-lg-3 col-md-6 col-12 mb-4 d-flex justify-content-center"
                   >
-                    {/* <div className="team-section__member card bg-transparent col-md-4 col-sm-6 mb-4"> */}
-                    <div className="team-section__member-img card-img-top">
-                      <img
-                        // src="https://bit.ly/3kPjqKZ"
-                        src={member.image}
-                        alt={member.name}
-                        className="img-fluid"
-                      />
-                    </div>
-                    <div className="team-section__member-content card-body">
-                      <h4 className="team-section__member-name card-title">
-                        {member.name} <br />
-                        <span className="team-section__member-role card-text">
-                          {member.role}
-                        </span>
-                      </h4>
-                      <div className="team-section__member-social">
-                        <a href={member.links.fb} className="mx-2">
-                          <i className="fab fa-facebook-f"></i>
-                        </a>
-                        <a href={member.links.twit} className="mx-2">
-                          <i className="fab fa-twitter"></i>
-                        </a>
-                        <a href={member.links.linkedin} className="mx-2">
-                          <i className="fab fa-linkedin-in"></i>
-                        </a>
+                    <div className="team-section__member card bg-transparent w-100">
+                      <div className="team-section__member-img">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="img-fluid"
+                        />
                       </div>
-                      {/* </div> */}
+                      <div className="team-section__member-content p-2 text-left">
+                        <h4 className="team-section__member-name">
+                          {member.name} <br />
+                          <span className="team-section__member-role">
+                            {member.role}
+                          </span>
+                        </h4>
+                        <div className="team-section__member-social">
+                          <a href={member.links.fb} className="mx-2">
+                            <i className="fab fa-facebook-f"></i>
+                          </a>
+                          <a href={member.links.twit} className="mx-2">
+                            <i className="fab fa-twitter"></i>
+                          </a>
+                          <a href={member.links.linkedin} className="mx-2">
+                            <i className="fab fa-linkedin-in"></i>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}

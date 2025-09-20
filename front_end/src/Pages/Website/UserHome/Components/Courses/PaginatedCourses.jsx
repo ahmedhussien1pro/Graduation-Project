@@ -11,7 +11,7 @@ const PaginatedCourses = ({ filteredCourses }) => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    window.scrollTo({ top:300 ,behavior: "smooth" });
+    window.scrollTo({ top: 300, behavior: "smooth" });
   };
 
   // Toggle favorite status for a course and update in DB.
@@ -96,39 +96,44 @@ const PaginatedCourses = ({ filteredCourses }) => {
     currentPage * itemsPerPage
   );
 
-    return (
-      <>
-        
+  return (
+    <>
       {displayedCourses.map((course, index) => (
         <div
           key={course.id}
           className="course-card-container col-lg-4 col-md-6 col-sm-12 mb-4"
           data-aos="fade-up"
-          data-aos-delay={index % 3 * 50}
+          data-aos-delay={(index % 3) * 50}
         >
-          <a  href={course.link} className="course-card">
+          <a href={course.link} className="course-card">
             <div className="card-image-container">
               <img
                 src={course.image}
                 alt={course.title}
                 className="card-image"
               />
-              
+
               {/* Status Badge */}
-              <div className={`status-badge ${course.state.replace('-', '')}`}>
+              <div className={`status-badge ${course.state.replace("-", "")}`}>
                 {course.state.replace("-", " ")}
               </div>
 
               {/* Card Overlay Icons */}
               <div className="card-hover-overlay">
-                <button 
+                <button
                   className="icon-button favorite-button"
                   onClick={(e) => {
                     e.preventDefault();
                     toggleFavorite(course.id);
                   }}
                 >
-                  <i className={`${favorites[course.id] ? "fas fa-heart filled" : "far fa-heart"}`} />
+                  <i
+                    className={`${
+                      favorites[course.id]
+                        ? "fas fa-heart filled"
+                        : "far fa-heart"
+                    }`}
+                  />
                 </button>
                 <button
                   className="icon-button info-button"
@@ -146,13 +151,15 @@ const PaginatedCourses = ({ filteredCourses }) => {
           </a>
         </div>
       ))}
-      
+
       {/* Pagination */}
       <div className="pagination-container">
         {Array.from({ length: totalPages }, (_, index) => (
           <button
             key={index + 1}
-            className={`pagination-item ${currentPage === index + 1 ? "active" : ""}`}
+            className={`pagination-item ${
+              currentPage === index + 1 ? "active" : ""
+            }`}
             onClick={() => handlePageChange(index + 1)}
           >
             {index + 1}

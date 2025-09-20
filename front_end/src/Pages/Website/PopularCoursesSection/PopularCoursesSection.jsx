@@ -1,8 +1,8 @@
 import React from "react";
 import "./PopularCoursesSection.css";
-import teamImage from "../assets//img/team-img/team-7UT4L65.jpg";
-import teamImage1 from "../assets//img/team-img/team-52G3BWD.jpg";
-import teamImage2 from "../assets//img/team-img/Team-3.webp";
+import teamImage from "../assets//img/team-img/radwan.jpg";
+import teamImage1 from "../assets//img/team-img/nasar.jpg";
+import teamImage2 from "../assets//img/team-img/emad.jpg";
 import courseImage1 from "../UserHome/assets/img/BLV/Landing.jpg";
 import courseImage2 from "../UserHome/assets/img/bash/bash_course_logo.png";
 import courseImage3 from "../UserHome/assets/img/Cross_Site_Scripting/xss.jpeg.jpg";
@@ -36,7 +36,7 @@ const coursesData = [
     detailsLink: "/bash-scripting",
     trainer: {
       name: "Eng. Ebrahim Nasar",
-      image: teamImage2,
+      image: teamImage1,
       userCount: 35,
       heartCount: 42,
     },
@@ -53,7 +53,7 @@ const coursesData = [
     detailsLink: "/xss",
     trainer: {
       name: "Eng. Mohamed Emad",
-      image: teamImage1,
+      image: teamImage2,
       userCount: 20,
       heartCount: 85,
     },
@@ -120,7 +120,7 @@ const PopularCoursesSection = () => {
                         className="popular-courses__item-trainer-image img-fluid"
                       />
                       <a
-                        href="#"
+                        href="/"
                         className="popular-courses__item-trainer-link"
                       >
                         {course.trainer.name}
